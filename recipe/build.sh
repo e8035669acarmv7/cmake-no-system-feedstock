@@ -1,5 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 set -ex
+
+if [[ "${target_platform}" == osx-* ]]; then
+  CFLAGS="${CFLAGS} -DTARGET_OS_IPHONE=0 -DTARGET_OS_WATCH=0 -DTARGET_OS_TV=0"
+fi
 
 ./bootstrap \
              --verbose \
