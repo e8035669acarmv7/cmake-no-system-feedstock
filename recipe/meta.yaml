@@ -1,4 +1,4 @@
-{% set version = "3.27.3" %}
+{% set version = "3.27.4" %}
 
 package:
   name: cmake-no-system
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
-  sha256: b24a05b6a501dc2f93f9d45852df7cdc68d62056901d65b98a13b57582e3ad4e
+  sha256: 36e99ded730eca77db057e45051707e93c3314bc948c84409206c3316ddffa6b
 
 build:
   number: 0
