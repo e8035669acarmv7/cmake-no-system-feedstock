@@ -1,11 +1,11 @@
-About cmake-no-system
-=====================
+About cmake-no-system-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cmake-no-system-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.cmake.org/
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cmake-no-system-feedstock/blob/main/LICENSE.txt)
 
 Summary: CMake built without system libraries for use when building CMake dependencies.
 
