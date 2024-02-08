@@ -1,23 +1,26 @@
 {% set version = "3.28.3" %}
+{% set version_major_minor = ".".join(version.split(".")[:2]) %}
 
 package:
   name: cmake-no-system
   version: {{ version }}
 
 source:
-  url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
-  sha256: 7155dd18c604ca0b02b8f471612f4c5aef903e054dbc7f93001a0009d4f15f5c
+  - url: https://gitlab.kitware.com/cmake/cmake/-/archive/v{{ version }}/cmake-v{{ version }}.tar.bz2
+    sha256: 7155dd18c604ca0b02b8f471612f4c5aef903e054dbc7f93001a0009d4f15f5c
+  - url: https://cmake.org/files/v{{ version_major_minor }}/cmake-{{ version }}-windows-x86_64.zip  # [win]
+    sha256: cac7916f7e1e73a25de857704c94fd5b72ba9fe2f055356b5602d2f960e50e5b                        # [win]
+    folder: cmake-{{ version }}-windows                                                             # [win]
 
 build:
   number: 0
-  skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make
-    - patch
+    - make  # [unix]
+    - ninja
 
 test:
   commands:
@@ -32,6 +35,7 @@ about:
   license_file:
     - Copyright.txt
     - Utilities/cmbzip2/LICENSE
+    - Utilities/cmcppdap/LICENSE
     - Utilities/cmcurl/COPYING
     - Utilities/cmexpat/COPYING
     - Utilities/cmjsoncpp/LICENSE
